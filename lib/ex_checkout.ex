@@ -10,15 +10,32 @@ defmodule ExCheckout do
     "CF1" => %{price: @coffee, rule: :volume_discount}
   }
 
+  @doc """
+  Scans a list of product codes, validates them, calculates their total price based on predefined pricing rules,
+  and returns the total price.
+
+  ## Example
+    iex> ExCheckout.scan(["GR1", "SR1", "CF1"])
+    19.34
+  """
+  @spec scan(list(String.t())) :: float()
   def scan(list_of_products) do
     list_of_products
     |> Enum.filter(&is_valid_product?/1)
     |> Enum.frequencies()
     |> Enum.map(fn {key, value} -> calculate_total(key, value) end)
     |> Enum.sum()
+    |> Float.round(2)
   end
 
-  @doc false
+  @doc """
+  Calculates the total price for a given product code and quantity based on its pricing rules.
+
+  ## Example
+    iex> ExCheckout.calculate_total("GR1", 4)
+    6.22
+  """
+  @spec calculate_total(String.t(), non_neg_integer()) :: float()
   def calculate_total(product_code, quantity) do
     case @product_catalog[product_code] do
       %{rule: :bogo, price: price} ->
