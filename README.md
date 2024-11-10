@@ -1,21 +1,18 @@
 # ExCheckout
 
-**TODO: Add description**
+A flexible and extensible checkout system designed for a supermarket chain to manage a cart, scan items, and calculate the total price dynamically based on predefined pricing rules.
 
-## Installation
+## Features
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `ex_checkout` to your list of dependencies in `mix.exs`:
+## Features
 
-```elixir
-def deps do
-  [
-    {:ex_checkout, "~> 0.1.0"}
-  ]
-end
-```
+- Product Scanning:
+  - Add products to a cart and calculate the total price dynamically.
+- Flexible Pricing Rules:
+  - Buy-One-Get-One-Free for Green Tea (`GR1`).
+  - Bulk Discount for Strawberries (`SR1`): Price drops from £5.00 to £4.50 when buying 3 or more.
+  - Volume Discount for Coffee (`CF1`): Price reduces to two-thirds of the original price when buying 3 or more.
+- Scalable architecture:
+  - Designed to accommodate new products and pricing rules with minimal changes.
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/ex_checkout>.
 
