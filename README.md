@@ -37,3 +37,8 @@ A flexible and extensible checkout system designed for a supermarket chain to ma
    ```bash
    mix test
 
+## Example Usage
+
+  ``bash
+  iex> ExCheckout.scan(["GR1", "SR1", "CF1"])
+  19.34
