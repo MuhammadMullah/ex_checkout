@@ -4,8 +4,6 @@ A flexible and extensible checkout system designed for a supermarket chain to ma
 
 ## Features
 
-## Features
-
 - Product Scanning:
   - Add products to a cart and calculate the total price dynamically.
 - Flexible Pricing Rules:
@@ -42,3 +40,9 @@ A flexible and extensible checkout system designed for a supermarket chain to ma
   ```bash
   iex> ExCheckout.scan(["GR1", "SR1", "CF1"])
   19.34
+
+## Extensibility
+Adding new products or rules:
+
+1. Update the @product_catalog map with the new product and its rule.
+2. Implement the rule in the respective function (e.g., calculate_bogo/2, calculate_bulk/3).
