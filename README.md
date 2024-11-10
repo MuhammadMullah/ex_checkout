@@ -39,6 +39,6 @@ A flexible and extensible checkout system designed for a supermarket chain to ma
 
 ## Example Usage
 
-  ``bash
+  ```bash
   iex> ExCheckout.scan(["GR1", "SR1", "CF1"])
   19.34
