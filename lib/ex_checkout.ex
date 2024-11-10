@@ -1,4 +1,12 @@
 defmodule ExCheckout do
+  @moduledoc """
+  ExCheckout is a flexible and extensible checkout system designed for a supermarket chain.
+  It manages a cart, scans items, and calculates the total price dynamically based on predefined pricing rules.
+  Dynamic pricing rules supported such as:
+  - Buy-One-Get-One-Free
+  - Bulk Discounts
+  - Volume Discounts
+  """
   @green_tea 3.11
   @strawberry 5.0
   @coffee 11.23
@@ -21,7 +29,7 @@ defmodule ExCheckout do
   @spec scan(list(String.t())) :: float()
   def scan(list_of_products) do
     list_of_products
-    |> Enum.filter(&is_valid_product?/1)
+    |> Enum.filter(&valid_product?/1)
     |> Enum.frequencies()
     |> Enum.map(fn {key, value} -> calculate_total(key, value) end)
     |> Enum.sum()
@@ -64,17 +72,25 @@ defmodule ExCheckout do
   @doc false
   defp calculate_bulk(price, discount_price, quantity) do
     # Price drops to £4.50 per each  SR1 if 3 or more SR1s are purchased.
-    if quantity >= 3, do: quantity * discount_price, else: quantity * price
+    if quantity >= 3 do
+      Float.round(quantity * discount_price, 2)
+    else
+      Float.round(quantity * price, 2)
+    end
   end
 
   @doc false
   defp calculate_volume_discount(price, quantity) do
     # Price of CF1 drops to two-thirds if 3 or more CF1s are purchased.
-    if quantity >= 3, do: quantity * price * 2 / 3, else: quantity * price
+    if quantity >= 3 do
+      Float.round(quantity * price * 2 / 3, 2)
+    else
+      Float.round(quantity * price, 2)
+    end
   end
 
   @doc false
-  def is_valid_product?(product_code) do
+  def valid_product?(product_code) do
     # check product is valid(part of the products in the catalog)
     Map.has_key?(@product_catalog, product_code)
   end

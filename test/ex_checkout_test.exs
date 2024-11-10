@@ -30,15 +30,15 @@ defmodule ExCheckoutTest do
     end
   end
 
-  describe "is_valid_product?/1" do
+  describe "valid_product?/1" do
     test "returns true for valid product codes" do
-      assert ExCheckout.is_valid_product?("GR1") == true
-      assert ExCheckout.is_valid_product?("SR1") == true
-      assert ExCheckout.is_valid_product?("CF1") == true
+      assert ExCheckout.valid_product?("GR1") == true
+      assert ExCheckout.valid_product?("SR1") == true
+      assert ExCheckout.valid_product?("CF1") == true
     end
 
     test "returns false for invalid product codes" do
-      assert ExCheckout.is_valid_product?("INVALID") == false
+      assert ExCheckout.valid_product?("INVALID") == false
     end
   end
 
