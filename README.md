@@ -40,7 +40,8 @@ A flexible and extensible checkout system designed for a supermarket chain to ma
   ```bash
   iex> ExCheckout.scan(["GR1", "SR1", "CF1"])
   19.34
-
+  ```
+  
 ## Extensibility
 Adding new products or rules:
 
