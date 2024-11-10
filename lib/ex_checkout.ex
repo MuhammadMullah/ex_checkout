@@ -25,6 +25,7 @@ defmodule ExCheckout do
     |> Enum.frequencies()
     |> Enum.map(fn {key, value} -> calculate_total(key, value) end)
     |> Enum.sum()
+    |> Kernel.+(0.0)
     |> Float.round(2)
   end
 
@@ -73,7 +74,7 @@ defmodule ExCheckout do
   end
 
   @doc false
-  defp is_valid_product?(product_code) do
+  def is_valid_product?(product_code) do
     # check product is valid(part of the products in the catalog)
     Map.has_key?(@product_catalog, product_code)
   end
