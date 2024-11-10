@@ -29,10 +29,11 @@ A flexible and extensible checkout system designed for a supermarket chain to ma
    git clone https://github.com/MuhammadMullah/ex_checkout.git
    cd ex_checkout
 
-2. Install Dependancies
-  ```bash
-  mix deps.get
+2. Install Dependancies:
+   ```bash
+   mix deps.get
 
-3. Running Tests
-  ```bash
-  mix test
+3. Install Dependancies:
+   ```bash
+   mix test
+
