@@ -31,7 +31,7 @@ A flexible and extensible checkout system designed for a supermarket chain to ma
    ```bash
    mix deps.get
 
-3. Install Dependancies:
+3. Run Unit Test:
    ```bash
    mix test
 
@@ -45,7 +45,7 @@ A flexible and extensible checkout system designed for a supermarket chain to ma
   ```bash
   mix credo --strict
   ```
-  
+
 ## Extensibility
 Adding new products or rules:
 
