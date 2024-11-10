@@ -15,4 +15,24 @@ A flexible and extensible checkout system designed for a supermarket chain to ma
 - Scalable architecture:
   - Designed to accommodate new products and pricing rules with minimal changes.
 
+## Usage
 
+### Prerequisites
+
+- Elixir (1.17 or later)
+- Mix (included with Elixir)
+
+### Getting Started
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/MuhammadMullah/ex_checkout.git
+   cd ex_checkout
+
+2. Install Dependancies
+  ```bash
+  mix deps.get
+
+3. Running Tests
+  ```bash
+  mix test
