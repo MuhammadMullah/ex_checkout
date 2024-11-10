@@ -61,6 +61,14 @@ defmodule ExCheckout do
     end
   end
 
+  @doc """
+  check product is valid(part of the products in the catalog)
+  """
+  @spec valid_product?(String.t()) :: boolean()
+  def valid_product?(product_code) do
+    Map.has_key?(@product_catalog, product_code)
+  end
+
   @doc false
   defp calculate_bogo(price, quantity) do
     # every second green tea is free
@@ -87,11 +95,5 @@ defmodule ExCheckout do
     else
       Float.round(quantity * price, 2)
     end
-  end
-
-  @doc false
-  def valid_product?(product_code) do
-    # check product is valid(part of the products in the catalog)
-    Map.has_key?(@product_catalog, product_code)
   end
 end
